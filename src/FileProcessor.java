@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 public class FileProcessor {
     private static List<NoteItem> noteItemList = new ArrayList<>();
     private static String filePath;
-//    public static SimpleDateFormat enDateFormat = new SimpleDateFormat("EEEE, MMM dd, yyyy HH:mm:ss a");
+    public static SimpleDateFormat enDateFormat = new SimpleDateFormat("EEEE, MMM dd, yyyy HH:mm:ss a");
 
     public static void main(String[] args) throws IOException {
         filePath = args[1];

@@ -1,3 +1,5 @@
+import java.text.ParseException;
+
 /**
  * @author Siqi Wang siqiw1 on 12/9/16.
  */
@@ -48,7 +50,11 @@ public class NoteItem implements Comparable<NoteItem> {
     @Override
     public int compareTo(NoteItem o) {
         if (this.title.equals(o.title)) {
-            return this.time.compareTo(o.time);
+            try {
+                return FileProcessor.enDateFormat.parse(this.time).compareTo(FileProcessor.enDateFormat.parse(o.time));
+            } catch (ParseException e) {
+                return this.time.compareTo(o.time);
+            }
         }
         return this.title.compareTo(o.title);
     }
