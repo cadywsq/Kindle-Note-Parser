@@ -27,6 +27,8 @@ consecutive in text.
 
 `java FileProcessor <Path for My Clippings.txt> <Directory to store separated notes>`
 
-![Source Clippings file format](pics/Before.png)
+**Source Clippings file format**
+![Source Clippings file format](https://github.com/cadywsq/Kindle-Note-Parser.git/master/src/pics/Before.png)
 
-![Parsed Notes format](pics/After.png)
+**Parsed Notes format**
+![Parsed Notes format](https://github.com/cadywsq/Kindle-Note-Parser.git/master/src/pics/After.png)
