@@ -26,3 +26,7 @@ consecutive in text.
 `javac FileProcessor.java`
 
 `java FileProcessor <Path for My Clippings.txt> <Directory to store separated notes>`
+
+![Source Clippings file format](pics/Before.png)
+
+![Parsed Notes format](pics/After.png)
