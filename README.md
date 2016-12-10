@@ -20,6 +20,7 @@ consecutive in text.
 
 ***Notice***
 - For time of highlighting, current version only support English and Chinese date formats.
+
 ####How To Use
 
 `javac FileProcessor.java`
