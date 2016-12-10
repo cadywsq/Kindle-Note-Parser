@@ -27,8 +27,9 @@ consecutive in text.
 
 `java FileProcessor <Path for My Clippings.txt> <Directory to store separated notes>`
 
-**Source Clippings file format**
+####Source Clippings file format
 ![Source Clippings file format](./src/pics/Before.png)
 
-**Parsed Notes format**
+
+####Parsed Notes format
 ![Parsed Notes format](./src/pics/After.png)

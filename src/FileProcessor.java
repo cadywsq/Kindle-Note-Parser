@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -82,7 +83,8 @@ public class FileProcessor {
     }
 
     private void writeFile(String filePath, List<NoteItem> noteItemList) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter(filePath + noteItemList.get(0).getTitle() + ".txt"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(Paths.get(filePath,
+                noteItemList.get(0).getTitle() + ".txt").toString()));
 
         for (int i = 0; i < noteItemList.size() - 1; i++) {
             NoteItem item = noteItemList.get(i);
@@ -91,7 +93,8 @@ public class FileProcessor {
 
             if (!item.getTitle().equals(nextItem.getTitle())) {
                 writer.close();
-                writer = new BufferedWriter(new FileWriter(filePath + nextItem.getTitle() + ".txt"));
+                writer = new BufferedWriter(new FileWriter(Paths.get(filePath,
+                        nextItem.getTitle() + ".txt").toString()));
             }
         }
         writer.write(noteItemList.get(noteItemList.size() - 1).toString());
