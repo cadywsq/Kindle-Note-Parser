@@ -1,21 +1,15 @@
-import java.text.ParseException;
+import java.util.Date;
 
 /**
  * @author Siqi Wang siqiw1 on 12/9/16.
  */
 public class NoteItem implements Comparable<NoteItem> {
     private String title;
-    private String time;
-    private String content;
+    private Date date;
+    private StringBuilder content;
 
     public NoteItem() {
-
-    }
-
-    public NoteItem(String title, String time, String content)  {
-        this.setTitle(title);
-        this.setTime(time);
-        this.setContent(content);
+        content = new StringBuilder();
     }
 
     public String getTitle() {
@@ -26,35 +20,31 @@ public class NoteItem implements Comparable<NoteItem> {
         this.title = title;
     }
 
-    public String getTime() {
-        return time;
+    public Date getDate() {
+        return date;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getContent() {
-        return content;
+        return content.toString();
     }
 
     public void setContent(String content) {
-        this.content = content;
+        this.content.append(content);
     }
 
     @Override
     public String toString() {
-        return String.format("%s\n%s\n\n", time, content);
+        return String.format("%s\n%s\n\n", date, content.toString());
     }
 
     @Override
     public int compareTo(NoteItem o) {
         if (this.title.equals(o.title)) {
-            try {
-                return FileProcessor.enDateFormat.parse(this.time).compareTo(FileProcessor.enDateFormat.parse(o.time));
-            } catch (ParseException e) {
-                return this.time.compareTo(o.time);
-            }
+            return this.date.compareTo(o.date);
         }
         return this.title.compareTo(o.title);
     }

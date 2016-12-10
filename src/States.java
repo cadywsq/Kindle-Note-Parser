@@ -1,11 +1,13 @@
+import java.text.ParseException;
+
 /**
  * @author Siqi Wang siqiw1 on 12/9/16.
  */
 public enum States {
-    TITLE{
+    TITLE {
         @Override
-        String processLine(String line) {
-            return line;
+        void processLine(String line, NoteItem item) {
+            item.setTitle(line);
         }
 
         @Override
@@ -14,14 +16,17 @@ public enum States {
         }
     },
     TIME {
-        @Override
-        String processLine(String line) {
+        void processLine(String line, NoteItem item) {
             String[] tokens = line.split("\\|");
-
-            if (tokens[1].trim().startsWith("Added on")) {
-                return tokens[1].substring(10);
+            try {
+                item.setDate(FileProcessor.enDateFormat.parse(tokens[1].substring(10)));
+            } catch (ParseException e) {
+                try {
+                    item.setDate(FileProcessor.chDateFormat.parse(tokens[1].substring(5)));
+                } catch (ParseException e1) {
+                    e1.printStackTrace();
+                }
             }
-            return tokens[1].substring(5);
         }
 
         @Override
@@ -30,8 +35,8 @@ public enum States {
         }
     }, BLANK {
         @Override
-        String processLine(String line) {
-            return "";
+        void processLine(String line, NoteItem item) {
+
         }
 
         @Override
@@ -40,8 +45,8 @@ public enum States {
         }
     }, CONTENT {
         @Override
-        String processLine(String line) {
-            return line;
+        void processLine(String line, NoteItem item) {
+            item.setContent(line);
         }
 
         @Override
@@ -50,8 +55,8 @@ public enum States {
         }
     }, SPLITTER {
         @Override
-        String processLine(String line) {
-            return "\n";
+        void processLine(String line, NoteItem item) {
+
         }
 
         @Override
@@ -60,7 +65,7 @@ public enum States {
         }
     };
 
-    abstract String processLine(String line);
+    abstract void processLine(String line, NoteItem item);
 
     abstract States getNextState(States curState);
 }
