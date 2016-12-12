@@ -3,12 +3,12 @@ import java.util.Date;
 /**
  * @author Siqi Wang siqiw1 on 12/9/16.
  */
-public class NoteItem implements Comparable<NoteItem> {
+public class NoteUnit implements Comparable<NoteUnit> {
     private String title;
     private Date date;
-    private StringBuilder content;
+    private final StringBuilder content;
 
-    public NoteItem() {
+    public NoteUnit() {
         content = new StringBuilder();
     }
 
@@ -42,7 +42,7 @@ public class NoteItem implements Comparable<NoteItem> {
     }
 
     @Override
-    public int compareTo(NoteItem o) {
+    public int compareTo(NoteUnit o) {
         if (this.title.equals(o.title)) {
             return this.date.compareTo(o.date);
         }
