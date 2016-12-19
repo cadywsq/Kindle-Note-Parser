@@ -18,9 +18,9 @@ This parser repo helps to separate highlights from different books and generate 
 
 ###How To Use
 
-`javac FileProcessor.java`
+`javac NoteProcessor.java`
 
-`java FileProcessor <Path for My Clippings.txt> <Directory to store separated notes>`
+`java NoteProcessor <Path for My Clippings.txt> <Directory to store separated notes>`
 
 
 ###Source Clippings file format
