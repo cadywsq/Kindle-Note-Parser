@@ -16,16 +16,16 @@ This parser repo helps to separate highlights from different books and generate 
 ***Notice***
 - For timestamp of highlights, current version only support English and Chinese date formats.
 
-###How To Use
+### How To Use
 
 `javac NoteProcessor.java`
 
 `java NoteProcessor <Path for My Clippings.txt> <Directory to store separated notes>`
 
 
-###Source Clippings file format
+### Source Clippings file format
 ![Source Clippings file format](./src/pics/Before.png)
 
 
-###Parsed Notes format
+### Parsed Notes format
 ![Parsed Notes format](./src/pics/After.png)
